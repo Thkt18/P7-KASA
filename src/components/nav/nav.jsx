@@ -1,24 +1,29 @@
-import { Link } from 'react-router-dom'
+import styled from "styled-components";
 
-export default function nav(){
+export default function Nav() {
+    return (
+        <div className='navbar'>
+            <UL>
+                <LI><A className='navbar__list' href="/">Accueil</A></LI>
+                <LI><A className='navbar__list' href="/about">A propos</A></LI>
+            </UL>
+        </div>
+    );
+}
 
-    //Création d'une cosntante pour la page active (surlignae de celle-ci)
-        const currentPage = window.location.pathname;
+const UL = styled.ul`
+    display: flex;
+    gap:57px;
+    font-size: 20px;
+    list-style: none;
     
-        return (
-            <nav>
-                <ul>
-                    <li className={currentPage === '/home' ? 'link_page_active' : 'link_page' }>
-                        <Link to='/home'>
-                            Accueil
-                        </Link>
-                    </li>
-                    <li className={currentPage === '/about' ? 'link_page_active' : 'link_page' }>
-                        <Link to='/about'>
-                            À Propos
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-        )
-    }
+`
+
+const LI = styled.li `
+liste-style: none;
+`
+
+const A = styled.a`
+    text-decoration: none;
+    color: #FF6060;
+`
