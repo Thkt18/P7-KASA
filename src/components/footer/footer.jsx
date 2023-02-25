@@ -25,4 +25,9 @@ const FooterBlock = styled.footer`
 const FooterSpan = styled.span`
     padding-top: 30px;
     color: #fff;
+    font-size: 24px;
+
+    @media (max-width: 768px) and (min-width: 345px) {
+        font-size: 12px;
+    }
 `

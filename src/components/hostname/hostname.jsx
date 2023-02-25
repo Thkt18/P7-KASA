@@ -55,5 +55,5 @@ const HostImg = styled.img`
 
     @media (max-width: 767px) and (min-width: 345px) {
         height: 32px;
-    }
+        
 ` 

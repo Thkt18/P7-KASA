@@ -85,6 +85,10 @@ const CollapseTitle = styled.h3`
     margin-left: 3%;
     color: white;
     font-size: 16px;
+
+    @media (max-width: 768px) and (min-width: 345px) {
+      font-size: 13px;
+    }
 `
 
 const SlideImg = styled.button`
