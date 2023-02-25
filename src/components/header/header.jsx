@@ -22,4 +22,7 @@ const HEADER = styled.header`
 `
 const IMG = styled.img`
     height: 40px;
+    @media (max-width: 768px) and (min-width: 345px) {
+        height: 36px
+    }
 `

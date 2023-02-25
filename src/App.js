@@ -3,17 +3,21 @@ import Home from "./pages/Home/Home";
 import Logement from './pages/Logement/Logement';
 import NotFound from './pages/NotFound/NotFound';
 import About from "./pages/About/About";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
-    <>
+    <div>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About/>} />
-        <Route path="/logement" element={<Logement/>} />
+        <Route path="/logement/:id" element={<Logement/>} />
         <Route path="/notfound" element={<NotFound/>} />
       </Routes>
-    </>
+      <Footer />
+    </div>
   );
 }
 
