@@ -1,15 +1,14 @@
-import BannerImg from '../../assets/banner.png';
+// import BannerImg from '../../assets/banner.png';
 import styled from 'styled-components';
 
-function Banner() {
+function Banner(props) {
 
   return (
 
-    <DIV>
-      <IMG className="banner_img" src={BannerImg} alt="Bannière" />
+    <DIV className='banner'>
+      <IMG className="banner_img" src={props.img} alt="BAckground banner" />
       <TEXT>
-        <TITRE>Chez vous, </TITRE>
-        <TITRE>partout et ailleurs</TITRE>
+      <TITRE className="banner_text">{props.title}</TITRE>
       </TEXT>
     </DIV>
 
@@ -18,9 +17,9 @@ function Banner() {
 
 export default Banner;
 
-const TITRE = styled.h1`
-    font-weight: 200;
-    font-size: 42px;
+const TITRE = styled.p`
+    font-weight: 500;
+    font-size: 48px;
     line-height: 68.45px;
     margin-right: 0.25em;
 
