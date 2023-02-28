@@ -140,4 +140,7 @@ const SlideShowNumber = styled.span`
     color: white;
     font-size: 18px;
     font-weight: 500;
+    z-index: 2;
+    position: relative;
+    color: white;
 `
