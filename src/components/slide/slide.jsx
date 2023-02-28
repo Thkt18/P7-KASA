@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import SlideLeft from "./../../assets/slideLeft.svg";
+import SlideRight from "./../../assets/slideRight.svg";
 
 function Carrousel({ slideshow }) {
     let [displayPicture, changePicture] = useState(0)
@@ -46,15 +48,16 @@ function Carrousel({ slideshow }) {
         {pictureNumber > 1 ? (
           <SlideArrows>
             <div className="slideshow_prev_arrow">
-            <SlideLeftArrow
-              onClick={nextSlide}
-            ></SlideLeftArrow>
+              <SlideLeftArrow
+                onClick={nextSlide}>
+                  <img src={SlideLeft} alt="" />
+              </SlideLeftArrow>
             </div>
             <div className="slideshow_next_arrow">
               <SlideRightArrow
-                className="fa-solid fa-chevron-right right_arrow"
-                onClick={prevSlide}
-              ></SlideRightArrow>
+                onClick={prevSlide}>
+                  <img src={SlideRight} alt="" />
+              </SlideRightArrow>
             </div>
           </SlideArrows>
         ) : null}
@@ -108,26 +111,25 @@ const SlideArrows = styled.div`
 
 const SlideLeftArrow = styled.div`
     position: absolute;
-    left: 6px;
-    top: 50%;
-    color: black;
-    width:15%;
-    height:15%;
+    display: flex;
+    justify-content: flex-end;
+    left: 1%;
+    top: 40%;
+    width:47px;
+    height:auto;
     z-index: 2;
-    border:3px solid blue;
-    background-image: url(./../../assets/slideLeft.svg);
 `
 
-const SlideRightArrow = styled.i`
+const SlideRightArrow = styled.div`
     position: absolute;
-    right: 6px;
-    top: 50%;
-    color: white;
+    display: flex;
+    justify-content: flex-end;
+    right: 1%;
+    top: 40%;
     font-size: 42px;
-    width:15%;
-    height:15%;
+    width:47px;
+    height:auto;
     z-index: 2;
-    border:3px solid blue;
 `
 
 const SlideShowNumber = styled.span`
