@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <HEADER>
             <h1>
-                <IMG src={Logo} alt="KASA, logo du site"/>
+                <a href="/"><IMG src={Logo} alt="KASA, logo du site"/></a>
             </h1>
             <Nav />
         </HEADER>

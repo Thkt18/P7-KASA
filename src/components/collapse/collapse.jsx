@@ -1,54 +1,80 @@
-import { useState } from 'react'
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 
 // style
-import slideup from "./../../assets/slideUp.svg";
+import slideup from './../../assets/slideUp.svg';
 
-function Collapse ({ props, title }) {
-    const [isOpen, setIsOpen] = useState(false)
-    const handleClick = () => {
-      isOpen ? setIsOpen(false) : setIsOpen(true)
-    }
-    const displayProps = () => {
-      if (typeof props === 'object') {
-        return (
-          <ul>
-            {props.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        )
-      } else {
-        return <CollapseP>{props}</CollapseP>
-      }
-    }
-  
-    return (
-      <CollapseDiv>
-        <CollapseTop className="collapse_top" onClick={() => handleClick()}>
-          <CollapseTitle>{title}</CollapseTitle>
-          <SlideImg type="button">
-            {isOpen ? (
-              <img src={slideup} alt="" />
-            ) : (
-              <img src={slideup} alt="" />
-            )}
-          </SlideImg>
-        </CollapseTop>
-        {isOpen && (
-          <OpenCollapse
-            className={
-              isOpen ? 'collapse_content  collapse_active' : 'collapse_content'
-            }
-          >
-            {displayProps()}
-          </OpenCollapse>
-        )}
-      </CollapseDiv>
-    )
-  }
 
-  export default Collapse
+function Collapse({ props, title }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const displayProps = () => {
+    if (typeof props === 'object') {
+      return (
+        <CollapseUl>
+          {props.map((item, index) => (
+            <CollapseLi key={index}>{item}</CollapseLi>
+          ))}
+        </CollapseUl>
+      );
+    } else {
+      return <CollapseP>{props}</CollapseP>;
+    }
+  };
+
+  return (
+    <CollapseDiv>
+      <CollapseTop className="collapse_top" onClick={handleClick}>
+        <CollapseTitle>{title}</CollapseTitle>
+        <SlideImg>
+          <SlideIconUp src={slideup} isOpen={isOpen} alt="" />
+        </SlideImg>
+      </CollapseTop>
+      {isOpen && (
+        <OpenCollapse
+          className={
+            isOpen ? 'collapse_content  collapse_active' : 'collapse_content'
+          }
+        >
+          {displayProps()}
+        </OpenCollapse>
+      )}
+    </CollapseDiv>
+  );
+}
+
+export default Collapse;
+
+
+const SlideImg = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 1%;
+  cursor: pointer;
+`;
+
+const SlideIcon = styled.img`
+  /* styles for the icon image */
+`;
+
+const rotate180 = css`
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
+`;
+
+const SlideIconUp = styled(SlideIcon)`
+  ${props => props.isOpen && rotate180};
+`;
+
+
+
+
 
 const CollapseDiv = styled.div`
     display: flex;
@@ -91,12 +117,6 @@ const CollapseTitle = styled.h3`
     }
 `
 
-const SlideImg = styled.button`
-    background-color:#f96060;
-    border: none;
-    border-radius: 12px;
-`
-
 const OpenCollapse = styled.div`
     display: flex;
     width: 100%;
@@ -121,4 +141,17 @@ const CollapseP = styled.p`
     @media (max-width: 768px) and (min-width: 345px) {
       font-size: 12px;
     }
+`
+
+const CollapseUl = styled.ul`
+    width: 94%;
+    margin: 3%;
+    list-style-type: none;
+    padding: 0;
+`
+
+const CollapseLi = styled.li`
+    width: 94%;
+    list-style-type: none;
+    padding: 0;
 `
