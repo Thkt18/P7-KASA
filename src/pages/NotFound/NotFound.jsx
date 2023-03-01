@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { media } from "../../style/breakpoint"
+import theme from "../../style/theme"
 
 export default function NotFound () {
     return (
@@ -13,7 +15,7 @@ export default function NotFound () {
 const NotFoundReturn = styled.a`
     font-size: 18px;
     font-weight: 500;
-    color: #ff6060;
+    color: ${theme.primary};
     text-decoration: underline;
 `
 
@@ -23,13 +25,15 @@ const NotFoundError = styled.h2`
     color: #ff6060;
     padding-top: -25px;
 
-    @media (max-width: 767px) and (min-width: 345px) {
+    ${media.mobile} {
         font-size: 18px;
         justify-content: center;
         width: 50%;
-        border: 1px solid red;
+        border: ${theme.border};
     }
+
 `
+
 
 const NotFoundTitle = styled.h1`
     font-size: 200px;
