@@ -66,13 +66,13 @@ const CollapseDiv = styled.div`
 
 const CollapseTop = styled.div`
 
-    width: 100%;
+    width: 94%;
     display: flex;
     justify-content: center;
+    margin: 15px auto 15px auto;
     background-color: ${theme.primary};
     border-radius: 12px;
     z-index: 2;
-    margin-bottom:20px;
     border-radius: 5px;
 
     ${media.desktop} {
@@ -105,13 +105,12 @@ const SlideImg = styled.button`
 
 const OpenCollapse = styled.div`
     display: flex;
-    width: 100%;
+    width: 94%;
     background-color: ${theme.backgroundCollapse};
     color: ${theme.primary};
-    margin-top: -25px;
+    margin: -25px auto 25px auto;
     padding-top : 15px;
     border-radius: 5px;
-    margin-bottom: 25px;
     z-index: 1;
 
     ${media.desktop} {

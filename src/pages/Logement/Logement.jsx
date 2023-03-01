@@ -113,8 +113,8 @@ const AccomodationDetailLeft = styled.div`
 
 const CollapseAccomodation = styled.section`
     display: flex;
-    width: 94%;
-    margin: 2% 3% 2% 3%;
+    width: 100%;
+    margin: auto;;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
