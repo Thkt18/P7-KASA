@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { media } from "../../style/breakpoint";
 
 // style
 import redstar from "./../../assets/StarRed.svg";
@@ -35,23 +36,20 @@ const Rating = ({ rating }) => {
 export default Rating;
 
 const RatingDiv = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: no-wrap;
-
-  @media (min-width: 345px) and (max-width: 767px) {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: no-wrap;
     width: auto;
     height:50%;
-  }
 `
 
 const Star = styled.img`
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-      width: 15px;
-      height: 15px;
+    ${media.desktop} {
+      width: 30px;
+      height: 30px;
     }
 `
 
