@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { media } from "../../style/breakpoint"
+import theme from "../../style/theme"
 
 function Tags({ tags }) {
     return (
@@ -19,26 +21,28 @@ export default Tags
 
 const DivTags = styled.div`
     display: flex;
-    font-family: 'Montserrat', sans-serif;
-
-    @media (max-width: 767px) and (min-width: 345px) {
-      width: 84px;
-      height: 18px;
-    }
+    flex-wrap: nowrap;
 `
 
 const EachTag = styled.span`
-    background-color: #f96060;
-    color: white;
+    background-color: ${theme.primary};
+    color: ${theme.secondary};
     border-radius: 10px;
     padding: 1% 5%;;
     margin-right: 10px;
     margin-top: 2px;
     text-align: center;
-    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
     font-weight: 400;
+    width: 115px;
+    height: 18px;
 
-    @media (max-width: 767px) and (min-width: 345px) {
-        font-size: 10px;
+    ${media.desktop} {
+        font-size: 14px;
+        width: 140px;
+        height: 25px;
     }
 `
