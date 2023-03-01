@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom'
 import Logement from '../../data/data_logement.json'
+import { media } from '../../style/breakpoint'
+import theme from '../../style/theme'
+
 
 function Card () {
 
@@ -27,60 +30,48 @@ export default Card
 
 
 const CardHomeTextTitle = styled.h2`
-color: #ffffff;
-text-decoration: none;
+color: ${theme.secondary};
 font-weight: 500;
 font-size: 18px;
-line-height: 22px;
+line-height: 25px;
 width: 50%;
 margin-left: 3%;
 `
 
 const CardHomeText = styled.div`
     height: 100%;
-    width: 100%;
+    width: 295px;
     position: relative;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 10px;
     z-index: 2;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        height: 100%;
-        width: 335px;
-    }
-
-    @media (min-width: 768px) and (max-width: 1247px) {
-        height: 100%;
-    width: 100%;
+    ${media.desktop} {
+        width: 300px;  
     }
 `
 
 const CardImg = styled.img`
-    height: 340px;
-    width: 340px;
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
-    background-color: #ffffff;
     object-fit: cover;
     position: absolute;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     z-index: 1;
     filter: brightness(0.6);
-    @media (min-width: 345px) and (max-width: 767px) {
-        height: 355px;
-        width: 100%;
+    ${media.desktop} {
+        height: 340px;
+        width: 340px;
     }
 
-    @media (min-width: 768px) and (max-width: 1247px) {
-        height: 255px;
-        width: 335px;
-    }
 `
 
 const CardHomeArticle = styled.article`
-    height: 340px;
-    width: 340px;
+    height: 355px;
+    width: 94%;
     border-radius: 10px;
     background-color: #ffffff;
     margin: 20px 0;
@@ -91,36 +82,23 @@ const CardHomeArticle = styled.article`
         &:hover {
             box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
         }
-    
-    @media (min-width: 345px) and (max-width: 767px) {
-        height: 355px;
-        width: 94%;
-    }
-
-    @media (min-width: 768px) and (max-width: 1247px) {
-        height: 255px;
-        width: 335px;
-    }
+            ${media.desktop} {
+                height: 340px;
+                width: 340px;
+                margin: 25px 30px 25px 30px;
+            }
 `
 
 const CardHome = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #f6f6f6;
     border-radius:25px;
-    margin: 60px 0 50px 0;
-    padding: 56px 50px;
+    margin: 5% 0;
+    padding: 0px;
+    background-color: ${theme.backgroundCard};
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        margin: 5% 0;
-        padding: 0px;
-        background-color: #ffffff;
-    }
-
-    @media (min-width: 768px) and (max-width: 1247px) {
-        margin: 0.5em 0em;
-        padding: 0px;
-        background-color: #ffffff;
+    ${media.desktop} {
+        margin: 60px 0 50px 0;
     }
 `
