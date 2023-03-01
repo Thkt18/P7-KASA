@@ -1,41 +1,38 @@
 import styled from "styled-components";
+import { media } from "../../style/breakpoint";
+import theme from "../../style/theme";
 
 export default function Nav() {
     return (
         <div className='navbar'>
             <UL>
-                <LI><A className='navbar__list' href="/">Accueil</A></LI>
-                <LI><A className='navbar__list' href="/about">A propos</A></LI>
+                <li><A className='navbar__list' href="/">Accueil</A></li>
+                <li><A className='navbar__list' href="/about">A propos</A></li>
             </UL>
         </div>
     );
 }
 
+
+
 const UL = styled.ul`
     display: flex;
-    gap:57px;
-    font-size: 20px;
-    list-style: none;
-    font-family: 'Montserrat', sans-serif;
+    gap: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
 
-    @media (max-width: 767px) and (min-width: 320px) {
-        font-size: 15px;
-        gap: 20px;
+    ${media.desktop} {
+        font-size: 24px;
+        gap: 57px; /* Espace entre 'Accueil' et 'A propos', 57px comme sur la maquette */
+        text-transform: none;
     }
 `
 
-const LI = styled.li `
-liste-style: none;
-`
 
 const A = styled.a`
-    text-decoration: none;
-    color: #FF6060;
+    color: ${theme.primary};
     &:hover {
         text-decoration: underline;
     }
-    @media (max-width: 768px) and (min-width: 320px){
-        text-transform: uppercase;
-        font-size: 15px;
-    }
+
 `
