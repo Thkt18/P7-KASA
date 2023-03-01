@@ -8,6 +8,8 @@ import Tags from '../../components/tag/tag';
 import HostName from '../../components/hostname/hostname';
 import Rating from '../../components/rating/rating';
 import styled from 'styled-components'
+import { media } from "../../style/breakpoint"
+import theme from "../../style/theme"
 
 function Accomodation () {
 
@@ -46,14 +48,14 @@ export default Accomodation
 
 const AccomodationHostCard = styled.div`
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
+    ${media.desktop} {
+        flex-direction: column-reverse;
     }
 `
 
@@ -62,32 +64,32 @@ const AccomodationDetailRight = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 25%;
+    width: 100%;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        width: 100%;
+    ${media.desktop} {
+        width: 25%;
     }
 `
 
 const AccomodationLocation = styled.h2`
     font-weight: 300;
-    font-size: 18px;
-    color: #f96060;
+    font-size: 14px;
+    color: ${theme.primary};
     margin-top: 5px;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        font-size: 14px;
+    ${media.desktop} {
+        font-size: 18px;
     }
 `
 
 const AccomodationTitle = styled.h1`
     font-weight: 500;
-    font-size: 36px;
+    font-size: 18px;
     margin: 20px 0 2px 0;
-    color: #f96060;
+    color: ${theme.primary};
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        font-size: 18px;
+    ${media.desktop} {
+        font-size: 36px;
     }
 `
 
@@ -98,10 +100,10 @@ const AccomodationToP = styled.section`
     margin: 2% 3% 2% 3%;
     justify-content: space-between;
     margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+    flex-direction: column;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        flex-direction: column;
+    ${media.desktop} {
+        flex-direction: row;
     }
 `
 
@@ -115,8 +117,9 @@ const CollapseAccomodation = styled.section`
     margin: 2% 3% 2% 3%;
     justify-content: space-between;
     align-items: flex-start;
+    flex-direction: column;
 
-    @media (min-width: 345px) and (max-width: 767px) {
-        flex-direction: column;
+    ${media.desktop} {
+        flex-direction: row;
     }
 `
