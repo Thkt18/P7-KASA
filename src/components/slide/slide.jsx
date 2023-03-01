@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { media } from "../../style/breakpoint"
+import theme from "../../style/theme"
 
 import SlideLeft from "./../../assets/slideLeft.svg";
 import SlideRight from "./../../assets/slideRight.svg";
@@ -50,13 +52,13 @@ function Carrousel({ slideshow }) {
             <div className="slideshow_prev_arrow">
               <SlideLeftArrow
                 onClick={nextSlide}>
-                  <img src={SlideLeft} alt="" />
+                  <SlideImg src={SlideLeft} alt="" />
               </SlideLeftArrow>
             </div>
             <div className="slideshow_next_arrow">
               <SlideRightArrow
                 onClick={prevSlide}>
-                  <img src={SlideRight} alt="" />
+                  <SlideImg src={SlideRight} alt="" />
               </SlideRightArrow>
             </div>
           </SlideArrows>
@@ -69,32 +71,34 @@ function Carrousel({ slideshow }) {
     )
   }
   
-  export default Carrousel
+export default Carrousel
 
 const SlideContent = styled.div`
     width: 94%;
     position: relative;
-    margin: 0 3% 0 3%;
+    height: 255px;
+    margin: auto;
 
-    @media (max-width: 767px) and (min-width: 320px) {
-        width: 335px;
-        height: 255px;
-        margin: auto;
+    ${media.desktop} {
+        width: 94%;
+        height: 415px;
+        margin: 0 3% 0 3%;
+    }
 `
 
 const SlidePicture = styled.img`
     width: 100%;
-    height: 415px;
+    height: 255px;
     mix-blend-mode: normal;
-    border-radius: 25px;
+    border-radius: 10px;
     object-fit: cover;
     z-index: 1;
     position: relative;
 
-    @media (max-width: 767px) and (min-width: 320px) {
-        width: 335px;
-        height: 255px;
-        border-radius: 10px;
+    ${media.desktop} {
+        width: 100%;
+        height: 415px;
+        border-radius: 25px;
     }
 `
 
@@ -102,7 +106,7 @@ const SlideArrows = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    color: white;
+    color: ${theme.secondary};
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -114,10 +118,11 @@ const SlideLeftArrow = styled.div`
     display: flex;
     justify-content: flex-end;
     left: 1%;
-    top: 40%;
-    width:47px;
-    height:auto;
+    top: 50%;
     z-index: 2;
+    ${media.desktop} {
+        top: 40%;
+    } 
 `
 
 const SlideRightArrow = styled.div`
@@ -125,22 +130,34 @@ const SlideRightArrow = styled.div`
     display: flex;
     justify-content: flex-end;
     right: 1%;
-    top: 40%;
+    top: 50%;
     font-size: 42px;
-    width:47px;
-    height:auto;
     z-index: 2;
+      ${media.desktop} {
+          top: 40%;
+      } 
+`
+
+const SlideImg = styled.img`
+    width: 12px;
+    height: auto;
+
+    ${media.desktop} {
+        width: 46px;
+    }
 `
 
 const SlideShowNumber = styled.span`
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    text-align: center;
-    margin-top: -2em;
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    z-index: 2;
-    position: relative;
-    color: white;
+    display: none;
+      ${media.desktop} {
+        display: grid;
+        grid-template-rows: repeat(1, 1fr);
+        text-align: center;
+        margin-top: -2em;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        z-index: 2;
+        position: relative;
+      }
 `
