@@ -6,13 +6,18 @@ import theme from '../../style/theme';
 function Footer () {
     return (
         <FooterBlock>
-            <img src={Logo} alt="Logo" />
+            <FooterImg src={Logo} alt="Logo" />
             <FooterSpan>© 2020 Kasa. All rights reserved</FooterSpan>
         </FooterBlock>
     )
 }
 
 export default Footer;
+
+const FooterImg = styled.img`
+    width: 122px;
+    margin-bottom: -40px;
+`
 
 const FooterBlock = styled.footer`
     display: flex;

@@ -21,7 +21,8 @@ export default Tags
 
 const DivTags = styled.div`
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    width: auto;
 `
 
 const EachTag = styled.span`
@@ -37,7 +38,7 @@ const EachTag = styled.span`
     align-items: center;
     font-size: 10px;
     font-weight: 400;
-    width: 115px;
+    width: auto;;
     height: 18px;
 
     ${media.desktop} {
