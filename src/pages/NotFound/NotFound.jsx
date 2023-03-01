@@ -13,37 +13,42 @@ export default function NotFound () {
 }
 
 const NotFoundReturn = styled.a`
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     color: ${theme.primary};
     text-decoration: underline;
+    ${media.desktop} {
+        font-size: 18px;
+    }
 `
 
 const NotFoundError = styled.h2`
-    font-size: 36px;
+    font-size: 18px;
+    width: 280px;
+    text-align: center;
     font-weight: 500;
-    color: #ff6060;
-    padding-top: -25px;
+    color: ${theme.primary};
+    margin-top: -50px;
+    margin-bottom: 100px;
 
-    ${media.mobile} {
-        font-size: 18px;
-        justify-content: center;
-        width: 50%;
-        border: ${theme.border};
+    ${media.desktop} {
+        font-size: 36px;
+        margin-top: 0;
+        width: 90%;
     }
 
 `
 
 
 const NotFoundTitle = styled.h1`
-    font-size: 200px;
+    font-size: 96px;
     font-weight: 700;
-    color: #ff6060;
-    margin: 2% 0 2% 0;
+    color: ${theme.primary};
+    margin: 15% 0 8% 0;
 
-    @media (max-width: 767px) and (min-width: 345px) {
-        font-size: 96px;
-        margin: 15% 0 8% 0;
+    ${media.desktop} {
+        font-size: 288px;
+        margin: 0;
     }
 `
 
@@ -53,6 +58,5 @@ const NotFoundDiv = styled.div`
     align-items: center;
     justify-content: center;
     width: 94%;
-    margin: 0 3% 0 3%;
-    height: auto;
+    margin: 0 3% 8% 3%;
 `  
