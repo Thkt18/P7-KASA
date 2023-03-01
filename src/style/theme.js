@@ -1,9 +1,9 @@
 const theme = {
     primary: '#FF6060',
-    seconday: '#FFFFFF',
+    secondary: '#FFFFFF',
     background: '#F7F7F7',
     font: 'Montserrat',
-    maxWidth: '1200px',
+    maxWidth: '1240px',
     border: '1px solid red',
 };
 
