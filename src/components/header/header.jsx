@@ -1,6 +1,7 @@
 import Logo from '../../assets/logo.png'
 import Nav from '../nav/nav'
 import styled from "styled-components";
+import { media } from "../../style/breakpoint";
 
 export default function Header() {
     return (
@@ -21,8 +22,9 @@ const HEADER = styled.header`
     margin: 0 3% 0 3%;
 `
 const IMG = styled.img`
-    height: 40px;
-    @media (max-width: 768px) and (min-width: 345px) {
-        height: 36px
+    height: 47px;
+    width: auto;
+    ${media.desktop} {
+        height: 68px;
     }
 `
