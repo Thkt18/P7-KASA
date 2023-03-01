@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { media } from '../../style/breakpoint'
+import theme from '../../style/theme'
 
 // style
-import slideup from './../../assets/slideUp.svg';
+import slidedown from './../../assets/slideDown.svg';
 
 
 function Collapse({ props, title }) {
@@ -31,7 +33,7 @@ function Collapse({ props, title }) {
       <CollapseTop className="collapse_top" onClick={handleClick}>
         <CollapseTitle>{title}</CollapseTitle>
         <SlideImg>
-          <SlideIconUp src={slideup} isOpen={isOpen} alt="" />
+          <SlideIconUp src={slidedown} isOpen={isOpen} alt="" />
         </SlideImg>
       </CollapseTop>
       {isOpen && (
@@ -50,6 +52,48 @@ function Collapse({ props, title }) {
 export default Collapse;
 
 
+const CollapseDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+
+    ${media.desktop} {
+        width: 45%;
+        
+    }
+`
+
+const CollapseTop = styled.div`
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: ${theme.primary};
+    border-radius: 12px;
+    z-index: 2;
+    margin-bottom:20px;
+    border-radius: 5px;
+
+    ${media.desktop} {
+      margin-bottom:0;
+      border-radius: 0;
+    }
+`
+
+const CollapseTitle = styled.h3`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3%;
+    color: ${theme.secondary};
+    font-size: 13px;
+
+    ${media.desktop} {
+      font-size: 16px;
+    }
+`
+
 const SlideImg = styled.button`
   background: none;
   border: none;
@@ -57,7 +101,25 @@ const SlideImg = styled.button`
   margin-left: auto;
   margin-right: 1%;
   cursor: pointer;
-`;
+`
+
+const OpenCollapse = styled.div`
+    display: flex;
+    width: 100%;
+    background-color: ${theme.backgroundCollapse};
+    color: ${theme.primary};
+    margin-top: -25px;
+    padding-top : 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    z-index: 1;
+
+    ${media.desktop} {
+      border-radius: 12px;
+      margin-top: -15px;
+      margin-bottom: 0;
+    }
+`
 
 const SlideIcon = styled.img`
   /* styles for the icon image */
@@ -72,86 +134,30 @@ const SlideIconUp = styled(SlideIcon)`
   ${props => props.isOpen && rotate180};
 `;
 
-
-
-
-
-const CollapseDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 45%;
-    font-family: 'Montserrat', sans-serif;
-
-    @media (max-width: 768px) and (min-width: 345px) {
-        width: 100%;
-        
-    }
-`
-
-const CollapseTop = styled.div`
-
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color:#f96060;
-    border-radius: 12px;
-    z-index: 2;
-
-    @media (max-width: 768px) and (min-width: 345px) {
-      margin-bottom:20px;
-      border-radius: 5px;
-    }
-`
-
-const CollapseTitle = styled.h3`
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 3%;
-    color: white;
-    font-size: 16px;
-
-    @media (max-width: 768px) and (min-width: 345px) {
-      font-size: 13px;
-    }
-`
-
-const OpenCollapse = styled.div`
-    display: flex;
-    width: 100%;
-    background-color: #D7D7CD;
-    color: #FF6060;
-    margin-top: -15px;
-    padding-top : 15px;
-    border-radius: 12px;
-    z-index: 1;
-
-    @media (max-width: 768px) and (min-width: 345px) {
-      border-radius: 5px;
-      margin-top: -25px;
-      margin-bottom: 25px;
-    }
-`
-
 const CollapseP = styled.p`
     width: 94%;
     margin: 3%;
+    font-weight: 400;
+    font-size: 12px;
 
-    @media (max-width: 768px) and (min-width: 345px) {
-      font-size: 12px;
+    ${media.desktop} {
+      font-size: 18px;
     }
 `
 
 const CollapseUl = styled.ul`
     width: 94%;
     margin: 3%;
-    list-style-type: none;
     padding: 0;
 `
 
 const CollapseLi = styled.li`
     width: 94%;
-    list-style-type: none;
     padding: 0;
+    font-size: 12px;
+    font-weight: 400;
+    
+    ${media.desktop} {
+      font-size: 18px;
+    }
 `
