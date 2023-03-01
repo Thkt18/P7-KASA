@@ -77,7 +77,7 @@ const CollapseTop = styled.div`
 
     ${media.desktop} {
       margin-bottom:0;
-      border-radius: 0;
+      border-radius: 10px;
     }
 `
 
