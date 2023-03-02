@@ -13,7 +13,7 @@ import theme from "../../style/theme"
 
 function Accomodation () {
 
-    const {id} = useParams(window.location.href)
+    const {id} = useParams()
 
     const accomodation = Logement.find((data) => data.id === id)
     if (!accomodation) return <NotFound />
@@ -36,10 +36,10 @@ function Accomodation () {
                     </AccomodationHostCard>
                 </AccomodationDetailRight>
             </AccomodationToP>
-            <CollapseAccomodation>
-                <Collapse className="logement_collapse_description" props={accomodation.description} title="Description" />
-                <Collapse className="logement_collapse_equipement" props={accomodation.equipments} title="Équipements" />
-            </CollapseAccomodation>
+            <CollapseDiv>
+                <Collapse className="logement_collapse_description" props={accomodation.description} title="Description" page="Logement" />
+                <Collapse className="logement_collapse_equipement" props={accomodation.equipments}  title="Équipements" page="Logement"  />
+            </CollapseDiv>
         </main>
     );
 }
@@ -56,6 +56,7 @@ const AccomodationHostCard = styled.div`
 
     ${media.desktop} {
         flex-direction: column-reverse;
+        width: 100%;
     }
 `
 
@@ -110,16 +111,11 @@ const AccomodationToP = styled.section`
 const AccomodationDetailLeft = styled.div`
     text-align: left;
 `
-
-const CollapseAccomodation = styled.section`
-    display: flex;
-    width: 100%;
-    margin: auto;;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
-
+const CollapseDiv = styled.div`
     ${media.desktop} {
-        flex-direction: row;
+        display: flex;
+        position: relative;
+        margin-top: 3%;
+        margin-bottom: 3%;
     }
 `

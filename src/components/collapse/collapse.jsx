@@ -7,7 +7,7 @@ import theme from '../../style/theme'
 import slidedown from './../../assets/slideDown.svg';
 
 
-function Collapse({ props, title }) {
+function Collapse({  title, props, page ,}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -29,15 +29,15 @@ function Collapse({ props, title }) {
   };
 
   return (
-    <CollapseDiv>
-      <CollapseTop className="collapse_top" onClick={handleClick}>
-        <CollapseTitle>{title}</CollapseTitle>
+    <CollapseDiv page={page}>
+      <CollapseTop page={page} className="collapse_top" onClick={handleClick}>
+        <CollapseTitle page={page}>{title}</CollapseTitle>
         <SlideImg>
           <SlideIconUp src={slidedown} isOpen={isOpen} alt="" />
         </SlideImg>
       </CollapseTop>
       {isOpen && (
-        <OpenCollapse
+        <OpenCollapse page={page} 
           className={
             isOpen ? 'collapse_content  collapse_active' : 'collapse_content'
           }
@@ -52,72 +52,125 @@ function Collapse({ props, title }) {
 export default Collapse;
 
 
+
+
+
 const CollapseDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
+  width: 94%;
+
+  ${props => props.page === 'Logement' && css`
+    margin: auto auto 30px auto;
 
     ${media.desktop} {
-        width: 45%;
-        
+      width: 45%;
+      margin-top: 0;
     }
-`
+  `}
+
+  ${props => props.page === 'About' && css`
+    margin: 3% auto;
+  `}
+`;
+
+
 
 const CollapseTop = styled.div`
-
-    width: 94%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin: 15px auto 15px auto;
     background-color: ${theme.primary};
     border-radius: 12px;
     z-index: 2;
-    border-radius: 5px;
+    
 
-    ${media.desktop} {
-      margin-bottom:0;
-      border-radius: 10px;
-    }
-`
+      ${props => props.page === 'Logement' && css` 
+        width: 100%;
+        margin: auto;
+        border-radius: 5px;
+        
+            ${media.desktop} { 
+                border-radius: 10px;
+                width: 100%;
+                max-width: ${theme.maxWidth};
+            }
+        `}
+
+        ${props => props.page === 'About' && css` 
+          margin-bottom:0;
+          margin: auto;
+          width: 89%;
+          max-width: ${theme.maxWidth};
+          border-radius: 5px;
+
+          ${media.desktop} {
+            border-radius: 12px;
+          }
+        `}
+`;
+
 
 const CollapseTitle = styled.h3`
     width: 100%;
     display: flex;
     justify-content: flex-start;
     margin-left: 3%;
-    color: ${theme.secondary};
     font-size: 13px;
+    color: ${theme.secondary};
 
-    ${media.desktop} {
-      font-size: 16px;
-    }
-`
+    ${props => props.page === 'Logement' && css`
+      ${media.desktop} {
+          font-size: 18px;
+      }
+    `}
+
+    ${props => props.page === 'About' && css` 
+
+
+        ${media.desktop} {
+            font-size: 18px;
+        }
+    `}
+`;
+
+
+const OpenCollapse = styled.div`
+    display: flex;
+    background-color: ${theme.backgroundCollapse};
+    color: ${theme.primary};
+    padding-top : 15px;
+    z-index: -1;
+    position: relative;
+    margin: -15px auto;
+
+    ${props => props.page === 'Logement' && css`
+          width: 100%;
+          border-radius: 5px;
+
+          ${media.desktop} {
+            border-radius: 12px;
+          }
+    `}
+
+    ${props => props.page === 'About' && css` 
+          width: 89%;
+          border-radius: 5px;
+          margin-bottom: 5%;
+
+          ${media.desktop} {
+            border-radius: 12px;
+          }
+    `}
+`;
+
+
 
 const SlideImg = styled.button`
   background: none;
   border: none;
   padding: 0;
   margin-left: auto;
-  margin-right: 1%;
+  margin-right: 3%;
   cursor: pointer;
-`
-
-const OpenCollapse = styled.div`
-    display: flex;
-    width: 94%;
-    background-color: ${theme.backgroundCollapse};
-    color: ${theme.primary};
-    margin: -25px auto 25px auto;
-    padding-top : 15px;
-    border-radius: 5px;
-    z-index: 1;
-
-    ${media.desktop} {
-      border-radius: 12px;
-      margin-top: -15px;
-      margin-bottom: 0;
-    }
 `
 
 const SlideIcon = styled.img`
@@ -160,3 +213,4 @@ const CollapseLi = styled.li`
       font-size: 18px;
     }
 `
+

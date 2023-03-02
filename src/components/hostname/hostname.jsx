@@ -33,7 +33,7 @@ const DetailsHost = styled.div`
       justify-content: flex-end;
 
       ${media.desktop} {
-        width: 150px; 
+          max-width: 100%;
       }
 `
 

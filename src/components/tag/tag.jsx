@@ -23,6 +23,10 @@ const DivTags = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: auto;
+
+    ${media.desktop} {
+      width: 150%;
+    }
 `
 
 const EachTag = styled.span`
@@ -43,7 +47,7 @@ const EachTag = styled.span`
 
     ${media.desktop} {
         font-size: 14px;
-        width: 140px;
+        width: 130px;
         height: 25px;
     }
 `

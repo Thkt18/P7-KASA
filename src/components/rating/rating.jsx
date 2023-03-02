@@ -41,6 +41,10 @@ const RatingDiv = styled.div`
     flex-wrap: no-wrap;
     width: auto;
     height:50%;
+
+    ${media.desktop} {
+      width: 100%;
+    }
 `
 
 const Star = styled.img`
