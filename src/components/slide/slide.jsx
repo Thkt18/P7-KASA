@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react' // Importe React et la fonction useState
 import styled from 'styled-components'
 import { media } from "../../style/breakpoint"
 import theme from "../../style/theme"
@@ -7,23 +7,23 @@ import SlideLeft from "./../../assets/slideLeft.svg";
 import SlideRight from "./../../assets/slideRight.svg";
 
 function Carrousel({ slideshow }) {
-    let [displayPicture, changePicture] = useState(0)
-    let pictureNumber = slideshow.length
+    let [displayPicture, changePicture] = useState(0) // Initialise l'état interne "displayPicture" à 0 et "changePicture" est la fonction pour mettre à jour cet état
+    let pictureNumber = slideshow.length // Stocke le nombre d'images du diaporama
   
     const nextSlide = () => {
-      if (displayPicture === 0) {
+      if (displayPicture === 0) { // Si on est à la première diapositive, on passe à la dernière diapositive
         changePicture(pictureNumber - 1)
       } else {
-        changePicture(displayPicture - 1)
+        changePicture(displayPicture - 1) // Sinon, on passe à la diapositive précédente
       }
       return changePicture
     }
   
     const prevSlide = () => {
-      if (displayPicture === pictureNumber - 1) {
+      if (displayPicture === pictureNumber - 1) { // Si on est à la dernière diapositive, on passe à la première diapositive
         changePicture((pictureNumber = 0))
       } else {
-        changePicture(displayPicture + 1)
+        changePicture(displayPicture + 1) // Sinon, on passe à la diapositive suivante
       }
       return changePicture
     }
@@ -34,19 +34,19 @@ function Carrousel({ slideshow }) {
           return (
             <div
               key={index}
-              className={
+              className={ // Ajoute une classe en fonction de si l'image est active ou inactive
                 index === displayPicture
                   ? 'slide slideshow_active-picture'
                   : 'slide slideshow_inactive-picture'
               }
             >
-              {index === displayPicture && (
+              {index === displayPicture && ( // Affiche l'image seulement si elle est active
                 <SlidePicture src={picture} alt=""/>
               )}
             </div>
           )
         })}
-        {/* if there's more than one picture  */} 
+        {/* Vérifie si le diaporama contient plus d'une image avant d'afficher les flèches de navigation */} 
         {pictureNumber > 1 ? (
           <SlideArrows>
             <div className="slideshow_prev_arrow">
