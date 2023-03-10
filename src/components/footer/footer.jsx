@@ -26,7 +26,6 @@ const FooterBlock = styled.footer`
     background-color: #000;
     align-items: center;
     justify-content: center;
-
 `
 
 const FooterSpan = styled.span`

@@ -8,7 +8,11 @@ function Banner(props) {
 
     <DIV className='banner'>
       <IMG className="banner_img" src={props.img} alt="Background banner" />
+      {/* Il y a une image à l'intérieur de la bannière avec une source dynamique
+       (props.img) et un texte alternatif. */}
       <TEXT>
+      {/* Il y a un élément de texte, également à l'intérieur de la bannière, contenant un élément de titre avec
+       la classe CSS "banner_text" et un contenu de texte dynamique (props.title). */}
       <TITRE className="banner_text">{props.title}</TITRE>
       </TEXT>
     </DIV>
@@ -36,16 +40,18 @@ const TEXT = styled.div`
     display: block;
     justify-content: start;
     white-space: pre-wrap;
-    width: 100%;
+    width: 90%;
     margin: 0;
+    margin-left: 3%;
     justify-content: center;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    margin-left: 15%;
         ${media.desktop} {
             display: flex;
             position: absolute;
+            margin-left: 15%;
+            width:75%;
      }
 `
 

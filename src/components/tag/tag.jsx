@@ -23,9 +23,8 @@ const DivTags = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: auto;
-
     ${media.desktop} {
-      width: 150%;
+      width: 100%;
     }
 `
 

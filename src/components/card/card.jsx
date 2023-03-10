@@ -7,14 +7,17 @@ import theme from '../../style/theme'
 
 function Card () {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate() // Cette fonction utilise "useNavigate" de la bibliothèque React Router pour naviguer vers la page de détails de chaque logement lorsqu'on clique dessus.
 
     return (
         <CardHome>
-            {Logement.map((data) => {
+            {Logement.map((data) => { // La liste de logements est obtenue à partir du fichier data_logement.json, qui contient l'ID, l'image Cover et le Tile.
                 return (
                     <CardHomeArticle key={data.id}
-                        onClick={() => navigate(`/logement/${data.id}`)}>
+                        onClick={() => navigate(`/logement/${data.id}`)}> 
+                        {/* Pour chaque objet "data" du tableau "Logement", la fonction map crée un élément de 
+                        carte avec une image et un titre, et lui associe une fonction de rappel qui navigue vers
+                         la page de détails du logement en utilisant son "id".*/}
                         <CardImg src={data.cover} alt='logement' />
                         <CardHomeText>
                             <CardHomeTextTitle>{data.title}</CardHomeTextTitle>

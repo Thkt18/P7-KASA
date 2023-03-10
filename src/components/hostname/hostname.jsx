@@ -2,21 +2,21 @@ import styled from "styled-components"
 import { media } from '../../style/breakpoint';
 import theme from '../../style/theme';
 
-function HostName({ host }) {
-    const hostNameSplitted = host.name.split(' ')
+function HostName({ host }) { // La fonction prend un objet `host` en paramètre
+    const hostNameSplitted = host.name.split(' ') // Sépare le nom et le prénom de l'hôte
     const [name, lastname] = hostNameSplitted
   
-    return (
+    return ( // Retourne le nom de l'hôte avec une photo
       <DetailsHost className="accommodation_host_details">
         <Host className="accommodation_host_name">
           <p className="host_firstname">{name.trim()}</p>
           <p className="host_lastname">{lastname.trim()}</p>
         </Host>
-        {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+        {/* Affiche la photo de l'hôte */}
         <HostImg
           src={host.picture}
           // eslint-disable-next-line no-template-curly-in-string
-          alt="{`Photo de '${accommodation.host.name}`}"
+          alt="{`Photo de '${accommodation.host.name}`}" // Le nom de l'hôte est affiché dans l'attribut alt de la photo
           className="accommodation_host_picture"
         />
       </DetailsHost>

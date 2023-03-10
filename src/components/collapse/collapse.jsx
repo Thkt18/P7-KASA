@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import styled, { css } from 'styled-components';
-import { media } from '../../style/breakpoint'
+import styled, { css } from 'styled-components'; // Importation de la bibliothèque styled-components qui permet de styliser les éléments
+import { media } from '../../style/breakpoint' // Importation du fichier media qui contient les breakpoints de l'application
 import theme from '../../style/theme'
 
 // style
-import slidedown from './../../assets/slideDown.svg';
+import slidedown from './../../assets/slideDown.svg'; // Importation de l'image d'icône de déroulement
 
 
 function Collapse({  title, props, page ,}) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Utilisation de useState pour gérer l'état de l'ouverture ou de la fermeture de la section
 
-  const handleClick = () => {
+  const handleClick = () => { // Gestion de l'événement de clic pour ouvrir ou fermer la section
     setIsOpen(!isOpen);
   };
 
-  const displayProps = () => {
+  const displayProps = () => { // Affichage du contenu de la section en fonction de son type (objet ou chaîne de caractères)
     if (typeof props === 'object') {
       return (
         <CollapseUl>
@@ -28,15 +28,15 @@ function Collapse({  title, props, page ,}) {
     }
   };
 
-  return (
+  return ( // Retourne l'élément CollapseDiv qui contient la section pliable
     <CollapseDiv page={page}>
-      <CollapseTop page={page} className="collapse_top" onClick={handleClick}>
+      <CollapseTop page={page} className="collapse_top" onClick={handleClick}> 
         <CollapseTitle page={page}>{title}</CollapseTitle>
         <SlideImg>
           <SlideIconUp src={slidedown} isOpen={isOpen} alt="" />
         </SlideImg>
       </CollapseTop>
-      {isOpen && (
+      {isOpen && ( //Si la section est ouverte, affiche l'élément OpenCollapse qui contient le contenu de la section
         <OpenCollapse page={page} 
           className={
             isOpen ? 'collapse_content  collapse_active' : 'collapse_content'
@@ -60,6 +60,7 @@ const CollapseDiv = styled.div`
 
   ${props => props.page === 'Logement' && css`
     margin: auto auto 30px auto;
+    
 
     ${media.desktop} {
       width: 45%;

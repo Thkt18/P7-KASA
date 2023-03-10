@@ -20,6 +20,7 @@ const UL = styled.ul`
     gap: 10px;
     font-size: 12px;
     text-transform: uppercase;
+    
 
     ${media.desktop} {
         font-size: 24px;

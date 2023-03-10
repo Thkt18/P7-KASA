@@ -2,18 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { media } from "../../style/breakpoint";
 
-// style
+// Import des images des étoiles rouge et grise
 import redstar from "./../../assets/StarRed.svg";
 import greystar from "./../../assets/StarGrey.svg";
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating }) => { // Tableau de 5 étoiles
   const stars = [1, 2, 3, 4, 5];
 
-  return (
-    <RatingDiv className="rating">
-      {/* Loop to display star by rating */}
+  return ( // Conteneur pour le composant Rating
+    <RatingDiv className="rating"> 
+      {/*  Boucle pour afficher chaque étoile selon la note  */}
       {stars.map((star) =>
-        rating >= star ? (
+        rating >= star ? ( // Étoile rouge si la note est supérieure ou égale à l'index de l'étoile
           <Star
             key={star.toString()}
             className="rating__icon"
@@ -21,7 +21,7 @@ const Rating = ({ rating }) => {
             alt=""
           />
         ) : (
-          <Star
+          <Star // Étoile grise si la note est inférieure à l'index de l'étoile
             key={star.toString()}
             className="rating__icon"
             src={greystar}
