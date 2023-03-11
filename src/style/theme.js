@@ -4,7 +4,6 @@ const theme = {
     background: '#F7F7F7',
     backgroundCard: '#F6F6F6',
     backgroundCollapse: '#D7D7CD',
-    font: 'Montserrat',
     maxWidth: '1200px',
     border: '1px solid red',
 };
